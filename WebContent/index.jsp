@@ -8,16 +8,27 @@
 <title>Employee Detail and Payroll System</title>
 </head>
 <body>
+<%
+String status = (String) request.getAttribute("status");
+if(status != null) {
+	if(status.equals("failed")) {
+		out.println("Username or Password Wrong!");
+	}
+	if(status.equals("inactive")) {
+		out.println("You are no more Employee with us!");
+	}
+}
+%>
 	<h1>
 		Login
 	</h1>
-	<p>
-		<img src="images/Sample_User_Icon.png" alt="user image" width="50" height="60"><br>
-		<label for="uname"><b>User Name</b></label>
- 		<input type="text" placeholder="Enter Username" name="username" id="username" required><br><br>
- 		<label for="psw"><b>Password</b></label>
- 		<input type="password" placeholder="Enter Password" name="password" id="password" required><br><br>
-		<button type="submit" name="submit" id="submit"  value="Login">Login</button>
-	</p>
+	<img src="images/Sample_User_Icon.png" alt="user image" width="50" height="60"><br>
+	<form action="UserLogin" method="post">
+	  <label for="EmployeeID">Employee ID:</label>
+	  <input type="text" name="employeeId"><br><br>
+	  <label for="Password">Password:</label>
+	  <input type="password" name="password"><br><br>
+	  <input type="submit" value="Login">
+	</form>		
 </body>
 </html>

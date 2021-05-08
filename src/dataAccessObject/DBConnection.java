@@ -1,4 +1,4 @@
-package DataAccessObject;
+package dataAccessObject;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -29,8 +29,12 @@ public class DBConnection {
 		return true;
 	}
 	
-	public static void destroyConnection() throws SQLException {
-		 con.close();
+	public static void destroyConnection() {
+		 try {
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 		
 }
