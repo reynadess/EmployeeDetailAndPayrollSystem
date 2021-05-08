@@ -11,7 +11,7 @@
 		Login
 	</h1>
 	<p>
-		<img src="Images/Sample_User_Icon.png" alt="user image" width="50" height="60"><br>
+		<img src="images/Sample_User_Icon.png" alt="user image" width="50" height="60"><br>
 		<label for="uname"><b>User Name</b></label>
  		<input type="text" placeholder="Enter Username" name="username" id="username" required><br><br>
  		<label for="psw"><b>Password</b></label>
