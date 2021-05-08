@@ -15,7 +15,7 @@
 		<img src="images/Sample_User_Icon.png" alt="user image" width="50" height="60"><br>
 		<label for="uname"><b>User Name</b></label>
  		<input type="text" placeholder="Enter Username" name="username" id="username" required><br><br>
- 		<label for="psw"><b>Password</b></label>
+ 		<label for="password"><b>Password</b></label>
  		<input type="password" placeholder="Enter Password" name="password" id="password" required><br><br>
 		<button type="submit" name="submit" id="submit"  value="Login">Login</button>
 	</p>
