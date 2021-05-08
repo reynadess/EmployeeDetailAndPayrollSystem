@@ -23,7 +23,7 @@ if(status != null) {
 		Login
 	</h1>
 	<img src="images/Sample_User_Icon.png" alt="user image" width="50" height="60"><br>
-	<form action="UserLogin" method="post">
+	<form action="UserLoginServlet" method="post">
 	  <label for="EmployeeID">Employee ID:</label>
 	  <input type="text" name="employeeId"><br><br>
 	  <label for="Password">Password:</label>

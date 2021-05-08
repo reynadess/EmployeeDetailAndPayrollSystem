@@ -18,7 +18,7 @@ import dataAccessObject.EmployeeDetails;
 import dataAccessObject.UserLoginValidation;
 
 @WebServlet("/UserLogin")
-public class UserLogin extends HttpServlet {
+public class UserLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void init(ServletConfig config) throws ServletException {
