@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 public class UserLoginValidation {
 	public static boolean login (int employeeId, String password) throws SQLException {
@@ -14,9 +15,30 @@ public class UserLoginValidation {
 		}
 		String hash = hashPassword(password);
 		if(checkPassword(employeeId, hash)) {
+			markAttendance(employeeId);
 			return true;
 		}
 		return false;
+	}
+
+	private static void markAttendance(int employeeId) {
+		String query = "INSERT INTO employee_payroll.attendance (employeeId) VALUES (?);";
+		try {
+			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
+			preparedStatement.setInt(1, employeeId);
+			int result = preparedStatement.executeUpdate();
+			if(result > 0)
+				System.out.println("Attendance marked!");
+			else
+				System.out.println("Attendance already marked!");
+			
+		}
+		catch(SQLIntegrityConstraintViolationException e) {
+			e.printStackTrace();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static boolean checkEmployeeId(int employeeId) {

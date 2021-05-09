@@ -7,10 +7,10 @@ import java.sql.Connection;
 
 public class DBConnection {
 	static Scanner sc = new Scanner(System.in);
-	static String url = "jdbc:mysql://localhost:3306/jdbc";
+	static String url = "jdbc:mysql://localhost:3306/employee_payroll";
 	private static String username = "root";
 	private static String password = "root";
-	public static Connection con;
+	public static Connection con = null;
 	
 	public static boolean makeConnection() {
 		try {
