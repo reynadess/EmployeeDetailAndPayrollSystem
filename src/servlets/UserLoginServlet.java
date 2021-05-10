@@ -68,6 +68,7 @@ public class UserLoginServlet extends HttpServlet {
 			else {
 				String status = "loginFailed";
 				request.setAttribute("status", status); 
+				response.sendRedirect("index.jsp");
 			}
 		}
 		catch(SQLException sqlException) {
