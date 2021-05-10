@@ -31,10 +31,6 @@
 	  	<option value="Active">Active</option>
 	  	<option value="Inactive">Inactive</option>	
 	  </select><br><br>
-	  <label for="CreatedBy">Created By	:</label>
-	  <input type="text" placeholder="Enter Your Employee Id" name="createdBy"><br><br>
-	  <label for="ModifiedBy">Modified By	:</label>
-	  <input type="text" placeholder="Enter Your Employee Id" name="modifiedBy"><br><br>
 	  <input type="submit" value="Submit">
 	 </p>
 </body>

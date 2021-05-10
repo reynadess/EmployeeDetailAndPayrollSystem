@@ -17,13 +17,20 @@ import dataAccessObject.DBConnection;
 import dataAccessObject.EmployeeDetails;
 import dataAccessObject.UserLoginValidation;
 
-@WebServlet("/UserLogin")
+@WebServlet("/UserLoginServlet")
 public class UserLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	boolean connected = false;
 
 	public void init(ServletConfig config) throws ServletException {
 		if(DBConnection.makeConnection()) {
+			connected = true;
 			System.out.println("Connection to database created");
+		}
+		else {
+			System.out.println("Failed to connect to Database");
+			
 		}
 	}
 
@@ -33,7 +40,12 @@ public class UserLoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int employeeId = Integer.parseInt(request.getParameter("employeeId"));
-		String password = request.getParameter("password");
+		String password = request.getParameter("password");	
+		if(connected == false) {
+			request.setAttribute("status", "databaseConnectionFail");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
+	        rd.forward(request, response); 		
+	    }
 		try {
 			if(UserLoginValidation.login(employeeId, password)) {
 				HttpSession session = request.getSession();
@@ -54,10 +66,8 @@ public class UserLoginServlet extends HttpServlet {
 				}
 			}
 			else {
-				String status = "failed";
-				request.setAttribute("status", status);
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
-		        rd.forward(request, response);  
+				String status = "loginFailed";
+				request.setAttribute("status", status); 
 			}
 		}
 		catch(SQLException sqlException) {
