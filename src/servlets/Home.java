@@ -10,9 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import EmployeeDetails.Employee;
 
-/**
- * Servlet implementation class Home
- */
+
 @WebServlet("/Home")
 public class Home extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

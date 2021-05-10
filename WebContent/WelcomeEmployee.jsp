@@ -19,7 +19,7 @@
 	<form action="PaySlipEmployee" method="post">
 		<input type="submit" value="Pay Slip">
 	</form>
-	<form action="ChangePassword" method="post">
+	<form action="ChangePassword.jsp" method="post">
 		<input type="submit" value="Change Password">
 	</form>
 	<form action="Logout" method="post">
