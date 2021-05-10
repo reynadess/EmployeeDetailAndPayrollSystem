@@ -23,8 +23,13 @@
 	  <input type="text" placeholder="Enter Date of Birth" name="dob"><br><br>
 	  <label for="EmployeeRole">Select Employee Role	:</label>
 	  <select name="employeRole">
-	  	<option value="Admin">Admin</option>
-	  	<option value="Employee">Employee</option>	
+	  	<option value="Employee">Employee</option>
+	  	<option value="Admin">Admin</option>	
+	  </select><br><br>
+	  <label for="EmployeeStatus">Select Employee Status	:</label>
+	  <select name="employeStatus">
+	  	<option value="Active">Active</option>
+	  	<option value="Inactive">Inactive</option>	
 	  </select><br><br>
 	  <label for="CreatedBy">Created By	:</label>
 	  <input type="text" placeholder="Enter Your Employee Id" name="createdBy"><br><br>
