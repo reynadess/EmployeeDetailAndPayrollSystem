@@ -44,7 +44,7 @@ public class UserLoginServlet extends HttpServlet {
 		if(connected == false) {
 			request.setAttribute("status", "databaseConnectionFail");
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
-	        rd.forward(request, response); 		
+	        rd.forward(request, response);
 	    }
 		try {
 			if(UserLoginValidation.login(employeeId, password)) {
@@ -62,13 +62,15 @@ public class UserLoginServlet extends HttpServlet {
 				}
 				else {
 					request.setAttribute("status", "inactive");
-					response.sendRedirect("index.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
+			        rd.forward(request, response);
 				}
 			}
 			else {
 				String status = "loginFailed";
-				request.setAttribute("status", status); 
-				response.sendRedirect("index.jsp");
+				request.setAttribute("status", status);
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
+		        rd.forward(request, response);
 			}
 		}
 		catch(SQLException sqlException) {
