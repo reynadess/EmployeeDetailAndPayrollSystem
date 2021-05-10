@@ -16,7 +16,6 @@ public class Logout extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("employeeDetail");
 		session.invalidate();
-		DBConnection.destroyConnection();	
 		response.sendRedirect("index.jsp");
 	}
 }
