@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome Admin</title>
+<title>Admin</title>
 </head>
 <body>
 	<h1>

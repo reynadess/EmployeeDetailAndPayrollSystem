@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome Employee</title>
+<title>Employee</title>
 </head>
 <body>
 	<h1>Welcome Employee</h1>
