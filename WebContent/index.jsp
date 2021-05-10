@@ -22,13 +22,17 @@ if(status != null) {
 	<h1>
 		Login
 	</h1>
-	<img src="images/Sample_User_Icon.png" alt="user image" width="50" height="60"><br>
+	<p  align="center">
+		<img src="images/Sample_User_Icon.png" alt="user image" width="150" height="150"><br>
+	</p>
 	<form action="UserLoginServlet" method="post">
-	  <label for="EmployeeID">Employee ID:</label>
-	  <input type="text" name="employeeId"><br><br>
-	  <label for="Password">Password:</label>
-	  <input type="password" name="password"><br><br>
+	  <p  align="center">
+	  <label for="EmployeeID">Employee ID	:</label>
+	  <input type="text" placeholder="Enter Employee ID" name="employeeId"><br><br>
+	  <label for="Password">Password	:</label>
+	  <input type="password" placeholder="Enter Password" name="password"><br><br>
 	  <input type="submit" value="Login">
+	  </p>
 	</form>		
 </body>
 </html>
