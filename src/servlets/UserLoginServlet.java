@@ -34,10 +34,6 @@ public class UserLoginServlet extends HttpServlet {
 		}
 	}
 
-	public void destroy() {
-		DBConnection.destroyConnection();
-	}	
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int employeeId = Integer.parseInt(request.getParameter("employeeId"));
 		String password = request.getParameter("password");	
@@ -69,7 +65,7 @@ public class UserLoginServlet extends HttpServlet {
 			else {
 				String status = "loginFailed";
 				request.setAttribute("status", status);
-				
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		}
 		catch(SQLException sqlException) {

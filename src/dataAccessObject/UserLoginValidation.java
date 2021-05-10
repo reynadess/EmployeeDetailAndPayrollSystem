@@ -76,7 +76,7 @@ public class UserLoginValidation {
 		return false;
 	}
 
-	private static String hashPassword(String password) {
+	static String hashPassword(String password) {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("SHA-256");

@@ -25,7 +25,7 @@
 	<form action="Logout" method="post">
 		<input type="submit" value="Logout">
 	</form>
-	<form action="RegisterEditEmployee" method="post">
+	<form action="UpdatePersonalDetails" method="post">
 		<input type="submit" value="Update Personal Details">
 	</form>
 </body>

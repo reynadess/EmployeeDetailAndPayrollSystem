@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class Logout
- */
+import dataAccessObject.DBConnection;
+
 @WebServlet("/Logout")
 public class Logout extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute("employeeDetail");
 		session.invalidate();
+		DBConnection.destroyConnection();	
 		response.sendRedirect("index.jsp");
 	}
 }

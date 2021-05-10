@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edit Employee Details</title>
+<title>Pay Slip Employee</title>
 </head>
 <body>
 <%
@@ -14,6 +14,5 @@ if(session.getAttribute("employeeDetail") == null ){
 	response.sendRedirect("index.jsp");
 }
 %>
-<h1>Edit Employee Details</h1>
 </body>
 </html>
