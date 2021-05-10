@@ -9,7 +9,9 @@
 <body>
 	<h1>Pay Slip Generation</h1>
 	<br><br><label>Enter the number of working days	:</label>
+	<form action="PaySlipGenerationServlet" method="post">
 	 <input type="text" placeholder="Number of working days" name="workingDays"><br><br>
 	 <input type="submit" value="Submit">
+	 </form>
 </body>
 </html>
