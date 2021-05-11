@@ -26,15 +26,14 @@ public class UserLoginValidation {
 		try {
 			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
 			preparedStatement.setInt(1, employeeId);
-			int result = preparedStatement.executeUpdate();
-			if(result > 0)
-				System.out.println("Attendance marked!");
-			else
-				System.out.println("Attendance already marked!");
-			
-		}
-		catch(SQLIntegrityConstraintViolationException e) {
-			e.printStackTrace();
+			try {
+				int result = preparedStatement.executeUpdate();
+				if(result > 0)
+					System.out.println("Attendance marked!");
+			}
+			catch(SQLIntegrityConstraintViolationException e) {
+				System.out.println("Attendance Marked for the day!");
+			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
