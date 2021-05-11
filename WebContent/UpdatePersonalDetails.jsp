@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 <title>UpdateDeatils</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
 	<form class="logout" action="Logout" method="post">
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>	
-	<form action = "EditEmployeeDetails" method="post">
+	<form action = "UpdatePersonalDetailsServlet" method="post">
 		<label>Employee Name:</label>
 		<input type="text" name="employeeName" value=${employeeDetail.employeeName} required>
 		<br><br>
@@ -32,10 +33,29 @@
 		<input type="tel" id="phone" name="phoneNo" placeholder="1234567890" value=${employeeDetail.phoneNo} pattern="[0-9]{10}" required>
 		<br/><br>
 		<label>Email ID:</label>
-		<input type="text" name="emailId" value= ${employeeDetail.emailId} required>
+		<input type="email" name="emailId" value= ${employeeDetail.emailId} required>
 		<br><br>
 		<input class="submit" type="submit" value="Edit">
 		<button onclick='location.reload()'>Reset</button>		
 	</form>
+	<p id = "status" class="status">
+	<%
+	String status = (String) request.getAttribute("status");
+	if(status != null) {
+		if(status.equals("success")) {
+			out.println("Updated Details!");
+		}
+		else if(status.equals("loginFailed")) {
+			out.println("Username or Password Wrong!");
+		}
+		else if(status.equals("inactive")) {
+			out.println("You are no more Employee with us!");
+		}
+		else if(status.equals("databaseConnectionFail")) {
+			out.println("Connection to database Failed!");
+		}
+	}
+	%>
+	</p>	
 </body>
 </html>

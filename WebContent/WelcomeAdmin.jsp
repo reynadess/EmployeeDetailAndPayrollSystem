@@ -19,7 +19,7 @@ if(session.getAttribute("employeeDetail") == null ){
 <form class="logout" action="Logout" method="post">
 	<input class="button" type="submit" value="Logout">
 </form><br>
-<form  action="PaySlipEmployee.jsp" method="post">
+<form  action="PaySlipMonth.jsp" method="post">
 	<input type="submit" value="View Pay Slip">
 </form><br>-
 <form action="RegisterEditEmployee" method="post">
@@ -36,7 +36,7 @@ if(session.getAttribute("employeeDetail") == null ){
 <form  action="ChangePassword.jsp" method="post">
 	<input type="submit" value="Change Password">
 </form><br>
-<form  action="EditSalaryStructure" method="post">
+<form  action="EditSalaryStructure.jsp" method="post">
 	<input type="submit" value="Update Salary Structure">
 </form><br>
 <form  action="PaySlipGeneration.jsp" method="post">

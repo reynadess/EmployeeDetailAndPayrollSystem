@@ -8,6 +8,38 @@ import java.util.Date;
 import EmployeeDetails.Employee;
 
 public class EmployeeDetails {
+	
+	public static boolean setEmployeeDetails(Employee employee, Employee currentEmployee) {
+		java.util.Date date = new java.util.Date();
+		java.sql.Timestamp sqlTime = new java.sql.Timestamp(date.getTime());
+		
+		String query = "UPDATE employee_payroll.employee SET employeeName = ?, employeeRole = ?, DOB = ?, totalSalary = ?, phoneNo = ?, emailId = ?, employeeStatus = ?, modifiedOn = ?, modifiedBy = ? WHERE employeeId = ?;";
+		try {
+			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
+			preparedStatement.setString(1, employee.getEmployeeName());
+			preparedStatement.setString(2, employee.getEmployeeRole());
+			preparedStatement.setDate(3, (java.sql.Date) employee.getDOB());
+			preparedStatement.setInt(4, employee.getTotalSalary());
+			preparedStatement.setString(5, employee.getPhoneNo());
+			preparedStatement.setString(6, employee.getEmailId());
+			preparedStatement.setString(7, employee.getEmployeeStatus());
+			preparedStatement.setTimestamp(8, sqlTime);
+			preparedStatement.setInt(9, currentEmployee.getEmployeeId());
+			preparedStatement.setInt(10, employee.getEmployeeId());
+			int result = preparedStatement.executeUpdate();
+			if(result >= 0) {
+				System.out.println("Updated!");
+				return true;
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+		return false;
+	}
+	
+	
 	public static Employee getEmployeeDetails(int employeeId) {
 		String employeeName = null;
 		String employeeRole = null;
@@ -34,7 +66,7 @@ public class EmployeeDetails {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		Employee EmployeeDetail = new Employee(employeeId, employeeName, employeeRole, DOB, totalSalary, phoneNo, emailId, employeeStatus);
+		Employee EmployeeDetail = new Employee(employeeId, employeeName, employeeRole, (java.sql.Date) DOB, totalSalary, phoneNo, emailId, employeeStatus);
 		return EmployeeDetail;
 	}
 }
