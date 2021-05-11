@@ -25,7 +25,7 @@ if(session.getAttribute("employeeDetail") == null ){
 <form action="RegisterEditEmployee" method="post">
 	<input  type="submit" value="Register Employee">
 </form><br>
-<form action="RegisterEditEmployee" method="post">
+<form action="RegisterEditEmployee.jsp" method="post">
 	<input type="submit" value="Update Employee">
 </form><br>
 <form  action="ChangePassword.jsp" method="post">

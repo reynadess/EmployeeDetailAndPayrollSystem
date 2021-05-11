@@ -26,7 +26,7 @@
 	  <input class="login" type="submit" value="Login">
 	  </p>
 	</form>		
-	<p id = "status">
+	<p id = "status" class="status">
 	<%
 	String status = (String) request.getAttribute("status");
 	if(status != null) {
