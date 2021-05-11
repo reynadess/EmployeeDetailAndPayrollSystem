@@ -19,7 +19,7 @@ public class UpdatePersonalDetailsServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Employee employeePOJO = (Employee) session.getAttribute("employeeDetail");
 		employeePOJO.setEmployeeName(request.getParameter("employeeName"));
-		Date date=Date.valueOf(request.getParameter("DOB"));
+		Date date = Date.valueOf(request.getParameter("DOB"));
 		employeePOJO.setDOB(date);
 		employeePOJO.setPhoneNo(request.getParameter("phoneNo"));
 		employeePOJO.setEmailId(request.getParameter("emailId"));

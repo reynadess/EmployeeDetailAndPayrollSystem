@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import = "EmployeeDetails.Employee" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,12 @@
 	if(session.getAttribute("employeeDetail") == null ){ 
 		response.sendRedirect("index.jsp");
 	}
+	else{
+		Employee employee = (Employee) session.getAttribute("employeeDetail"); 
+		if(employee.getEmployeeRole().equals("Employee") == false){
+			request.getRequestDispatcher("Home").forward(request, response);
+		}
+	}
 	%>
 	<h1>Welcome ${employeeDetail.employeeName}</h1>
 	<form class="logout" action="Logout" method="post">
@@ -26,7 +33,7 @@
 	<form action="ChangePassword.jsp" method="post">
 		<input type="submit" value="Change Password">
 	</form><br><br>
-	<form action="UpdatePersonalDetails" method="post">
+	<form action="UpdatePersonalDetails.jsp" method="post">
 		<input type="submit" value="Update Personal Details">
 	</form>
 </body>

@@ -35,8 +35,10 @@
 		<label>Email ID:</label>
 		<input type="email" name="emailId" value= ${employeeDetail.emailId} required>
 		<br><br>
-		<input class="submit" type="submit" value="Edit">
-		<button onclick='location.reload()'>Reset</button>		
+		<input class="submit" type="submit" value="Edit">		
+	</form>
+		<form action="UpdatePersonalDetails.jsp" method="post">
+		<input type="submit" value="Reset">
 	</form>
 	<p id = "status" class="status">
 	<%
@@ -54,6 +56,7 @@
 		else if(status.equals("databaseConnectionFail")) {
 			out.println("Connection to database Failed!");
 		}
+		request.removeAttribute("status");
 	}
 	%>
 	</p>	
