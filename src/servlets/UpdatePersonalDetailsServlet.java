@@ -25,8 +25,11 @@ public class UpdatePersonalDetailsServlet extends HttpServlet {
 		employeePOJO.setEmailId(request.getParameter("emailId"));
 		if(dataAccessObject.EmployeeDetails.setEmployeeDetails(employeePOJO, employeePOJO)) {
 			request.setAttribute("status", "success");
-			request.getRequestDispatcher("UpdatePersonalDetails.jsp").forward(request, response);
 		}
+		else {
+			request.setAttribute("status", "failed");
+		}
+		request.getRequestDispatcher("UpdatePersonalDetails.jsp").forward(request, response);
 	}
 
 }
