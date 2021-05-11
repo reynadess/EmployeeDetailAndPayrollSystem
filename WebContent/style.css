@@ -1,7 +1,25 @@
 @charset "ISO-8859-1";
-h1{
-	text-align:left;
+body {
+	text-align:center;
+	background-color: rgb(96,171,217);
 }
-body{
-	text-align: center;
+
+h1 {
+	text-align:left;
+	color:purple;
+  	margin-left: 20px;
+}
+
+form.home,form.logout{
+	text-align: right;
+	border-width: 2px;
+}
+input.button{
+	border-radius: 12px;
+}
+input.submit,input.login{
+	border-radius: 5px;
+}
+img.image{
+	border-radius: 50%;
 }

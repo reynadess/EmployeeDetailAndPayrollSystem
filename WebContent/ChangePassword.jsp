@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <meta charset="ISO-8859-1">
 <title>Employee Password Change</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,12 +16,19 @@
 	}
 	%>
 	<h1>Change Password</h1>
+	<form class="home" action="Home" method="post">
+		<input class="button" type="submit" value="Home">
+	</form><br>
+	<form class="logout" action="Logout" method="post">
+		<input class="button" type="submit" value="Logout">
+	</form>	<br><br>
 	<form action = "ChangePasswordServlet" method="post">
 		<label for="Current Password">Current Password:</label>
 		<input type="password" name="currentPassword">
+		<br><br>
 		<label for="New Password">New Password:</label>
-	  	<input type="password" name="newPassword">
-		<input type="submit" value="Submit">		
+	  	<input type="password" name="newPassword"><br><br><br>
+		<input class="submit" type="submit" value="Submit">		
 	</form>
 	<p id = "status">
 	<%
@@ -38,12 +46,5 @@
 	}
 	%>
 	</p>
-	<br>
-	<form action="Home" method="post">
-		<input type="submit" value="Home">
-	</form>
-	<form action="Logout" method="post">
-		<input type="submit" value="Logout">
-	</form>	
 </body>
 </html>

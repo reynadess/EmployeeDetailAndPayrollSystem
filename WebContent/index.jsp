@@ -13,17 +13,17 @@
 		Login
 	</h1>
 	<form>
-	<p  align="center">
-		<img src="images/Sample_User_Icon" alt="user image" width="150" height="150">
+	<p>
+		<img class="image" src="images/Sample_User_Icon" alt="user image" width="150" height="150">
 	</p>
-	</form>
+	</form><br>
 	<form action="UserLoginServlet" method="post">
-	  <p  align="center">
+	  <p>
 	  <label for="EmployeeID">Employee ID:</label>
 	  <input type="number" name="employeeId" min="1000"><br><br>
 	  <label for="Password">Password:</label>
 	  <input type="password" name="password"><br><br>
-	  <input type="submit" value="Login">
+	  <input class="login" type="submit" value="Login">
 	  </p>
 	</form>		
 	<p id = "status">
