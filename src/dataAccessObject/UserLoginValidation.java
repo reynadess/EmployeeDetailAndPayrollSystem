@@ -32,7 +32,7 @@ public class UserLoginValidation {
 					System.out.println("Attendance marked!");
 			}
 			catch(SQLIntegrityConstraintViolationException e) {
-				System.out.println("Attendance Marked for the day!");
+				System.out.println("Attendance Already Marked for the day!");
 			}
 		}
 		catch(SQLException e) {
