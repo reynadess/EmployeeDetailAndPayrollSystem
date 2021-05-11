@@ -39,7 +39,7 @@ public class UserLoginServlet extends HttpServlet {
 		String password = request.getParameter("password");	
 		if(connected == false) {
 			request.setAttribute("status", "databaseConnectionFail");
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
+			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");  
 	        rd.forward(request, response);
 	    }
 		try {
@@ -58,14 +58,14 @@ public class UserLoginServlet extends HttpServlet {
 				}
 				else {
 					request.setAttribute("status", "inactive");
-					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
+					RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");  
 			        rd.forward(request, response);
 				}
 			}
 			else {
 				String status = "loginFailed";
 				request.setAttribute("status", status);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 		}
 		catch(SQLException sqlException) {

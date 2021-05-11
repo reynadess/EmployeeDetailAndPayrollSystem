@@ -15,18 +15,21 @@ if(session.getAttribute("employeeDetail") == null ){
 	response.sendRedirect("index.jsp");
 }
 %>
-<h1 >Welcome ${employeeDetail.employeeName}</h1><br>
+<h1>Welcome ${employeeDetail.employeeName}</h1><br>
 <form class="logout" action="Logout" method="post">
 	<input class="button" type="submit" value="Logout">
 </form><br>
 <form  action="PaySlipEmployee" method="post">
 	<input type="submit" value="View Pay Slip">
-</form><br>
+</form><br>-
 <form action="RegisterEditEmployee" method="post">
 	<input  type="submit" value="Register Employee">
 </form><br>
 <form action="RegisterEditEmployee.jsp" method="post">
 	<input type="submit" value="Update Employee">
+</form><br>
+<form action="UpdatePersonalDetails.jsp" method="post">
+	<input type="submit" value="Update Personal Details">
 </form><br>
 <form  action="ChangePassword.jsp" method="post">
 	<input type="submit" value="Change Password">
