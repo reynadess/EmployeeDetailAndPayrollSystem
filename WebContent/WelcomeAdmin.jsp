@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <meta charset="ISO-8859-1">
-<title>Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin</title>
 </head>
 <body>
 <%
@@ -14,27 +15,27 @@ if(session.getAttribute("employeeDetail") == null ){
 	response.sendRedirect("index.jsp");
 }
 %>
-<h1>Welcome ${employeeDetail.employeeName}</h1>
-<form action="PaySlipEmployee" method="post">
-	<input type="submit" value="Pay Slip">
-</form>
-<form action="ChangePassword.jsp" method="post">
+<h1 >Welcome ${employeeDetail.employeeName}</h1>
+<form  action="PaySlipEmployee" method="post">
+	<input type="submit" value="View Pay Slip">
+</form><br>
+<form action="RegisterEditEmployee" method="post">
+	<input  type="submit" value="Register Employee">
+</form><br>
+<form action="RegisterEditEmployee" method="post">
+	<input type="submit" value="Update Employee">
+</form><br>
+<form  action="ChangePassword.jsp" method="post">
 	<input type="submit" value="Change Password">
-</form>
+</form><br>
+<form  action="EditSalaryStructure" method="post">
+	<input type="submit" value="Update Salary Structure">
+</form><br>
+<form  action="PaySlipGeneration" method="post">
+	<input type="submit" value="Generate Pay Slip for Employees">
+</form><br><br>
 <form action="Logout" method="post">
 	<input type="submit" value="Logout">
-</form>
-<form action="RegisterEditEmployee" method="post">
-	<input type="submit" value="Register Employee">
-</form>
-<form action="RegisterEditEmployee" method="post">
-	<input type="submit" value="Edit Employee">
-</form>
-<form action="EditSalaryStructure" method="post">
-	<input type="submit" value="Edit Salary Structure">
-</form>
-<form action="PaySlipGeneration" method="post">
-	<input type="submit" value="Generate Pay Slip for Employees">
-</form>
+</form><br>
 </body>
 </html>

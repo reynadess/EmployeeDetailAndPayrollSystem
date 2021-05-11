@@ -12,9 +12,11 @@
 	<h1>
 		Login
 	</h1>
+	<form>
 	<p  align="center">
-		<img src="images/Sample_User_Icon.png" alt="user image" width="150" height="150"><br>
+		<img src="images/Sample_User_Icon" alt="user image" width="150" height="150">
 	</p>
+	</form>
 	<form action="UserLoginServlet" method="post">
 	  <p  align="center">
 	  <label for="EmployeeID">Employee ID:</label>
