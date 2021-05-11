@@ -9,6 +9,12 @@
 <title>Employee Detail and Payroll System</title>
 </head>
 <body>
+	<%
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	if(session.getAttribute("employeeDetail") != null ){ 
+		request.getRequestDispatcher("Home").forward(request, response);
+	}
+	%>
 	<h1>
 		Login
 	</h1>
@@ -20,9 +26,9 @@
 	<form action="UserLoginServlet" method="post">
 	  <p>
 	  <label for="EmployeeID">Employee ID:</label>
-	  <input type="number" name="employeeId" min="1000"><br><br>
+	  <input type="number" name="employeeId" min="1000" required><br><br>
 	  <label for="Password">Password:</label>
-	  <input type="password" name="password"><br><br>
+	  <input type="password" name="password" required><br><br>
 	  <input class="login" type="submit" value="Login">
 	  </p>
 	</form>		
