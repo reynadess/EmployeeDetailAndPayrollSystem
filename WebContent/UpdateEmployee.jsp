@@ -82,7 +82,7 @@
 	  	</select><br><br>
 		<input class="submit" type="submit" value="Update">		
 	</form>
-	<form action="RegisterEditEmployee.jsp" method="post">
+	<form action="UpdateEmployee.jsp" method="post">
 		<input class="submit" type="submit" value="Reset">
 	</form>
 	<p id = "status" class="status">
