@@ -22,7 +22,7 @@
 		}
 	}
 	%>
-	<h1>Update Personal Details</h1>
+	<h1>Employee Details</h1>
 	<form class="home" action="Home" method="post">
 		<input class="button" type="submit" value="Home">
 	</form><br>
@@ -35,33 +35,33 @@
 		<input class="submit" type="submit" value="GET">
 		<br><br>
 	</form>
-	<form action = "UpdatePersonalDetailsServlet" method="post">	
+	<form action = "SetEmployeeDetailsServlet" method="post">	
 		<label>Employee Name:</label>
-		<input type="text" name="employeeName" required value=${getEmployee.employeeName}>
+		<input type="text" name="employeeName" required value="${getEmployee.employeeName}" required>
 		<br><br>
 		<label>Date of Birth:</label>
-	  	<input type="date" name="DOB" <fmt:formatDate value="${getEmployee.DOB}"/>>
+	  	<input type="date" name="DOB" value="${getEmployee.DOB}" required/>
 	  	<br><br>
 		<label for="phone">Phone No:</label>
-		<input type="tel" id="phone" name="phoneNo" placeholder="1234567890" pattern="[0-9]{10}" required value=${getEmployee.phoneNo}>
+		<input type="tel" id="phone" name="phoneNo" placeholder="1234567890" pattern="[0-9]{10}" required value="${getEmployee.phoneNo}" required>
 		<br/><br>
 		<label>Email ID:</label>
-		<input type="email" name="emailId" required value= ${getEmployee.emailId}>
+		<input type="email" name="emailId" required value="${getEmployee.emailId}" required>
 		<br><br>
 		<label for="SalaryCTC">Salary per Annum	:</label>
 	  	<input type="text" placeholder="Enter Salary per Annum" name="totalSalary" value="${getEmployee.totalSalary}"><br><br>		
 		<label for="EmployeeRole">Select Employee Role	:</label>
-	  	<select name="employeRole" value=${getEmployee.employeeRole}>
+	  	<select name="employeRole" value="${getEmployee.employeeRole}" required>
 	  	<option value="Employee">Employee</option>
 	  	<option value="Admin">Admin</option>	
  		</select><br><br>
 	  	<label for="EmployeeStatus">Select Employee Status	:</label>
-	  	<select name="employeStatus" value=${getEmployee.employeeStatus}>
+	  	<select name="employeStatus" value="${getEmployee.employeeStatus}">
 	  	<option value="Active">Active</option>
 	  	<option value="Inactive">Inactive</option>	
 	  	</select><br><br>
 	  	<script type="text/javascript"> </script>
-		<input class="submit" type="submit" value="Edit">		
+		<input class="submit" type="submit" value="Update">		
 	</form>
 	<form action="RegisterEditEmployee.jsp" method="post">
 		<input class="submit" type="submit" value="Reset">
