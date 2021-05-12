@@ -33,6 +33,13 @@ public class UserLoginServlet extends HttpServlet {
 			
 		}
 	}
+	
+	public void destroy(ServletConfig config) throws ServletException {
+		if(connected) {
+			DBConnection.destroyConnection();
+		}
+	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int employeeId = Integer.parseInt(request.getParameter("employeeId"));

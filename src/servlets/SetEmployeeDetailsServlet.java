@@ -15,10 +15,11 @@ import javax.servlet.http.HttpSession;
 import EmployeeDetails.Employee;
 import dataAccessObject.DBConnection;
 
-@WebServlet("/UpdatePersonalDetailsServlet")
-public class UpdatePersonalDetailsServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
+@WebServlet("/SetEmployeeDetailsServlet")
+public class SetEmployeeDetailsServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
 	boolean connected = false;
 
 	public void init(ServletConfig config) throws ServletException {
@@ -37,27 +38,48 @@ public class UpdatePersonalDetailsServlet extends HttpServlet {
 			DBConnection.destroyConnection();
 		}
 	}
-	
+	       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SetEmployeeDetailsServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Employee setEmployee = new Employee();
 		if(connected == false) {
 			request.setAttribute("status", "databaseConnectionFail");
 			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");  
 	        rd.forward(request, response);
-	    }		
+	    }
+		setEmployee.setEmployeeId(Integer.parseInt(request.getParameter("employeeId")));
+		setEmployee.setEmployeeName(request.getParameter("employeeName"));
+		java.sql.Date DOB = Date.valueOf(request.getParameter("DOB"));
+		setEmployee.setDOB(DOB);
+		setEmployee.setPhoneNo(request.getParameter("phoneNo"));
+		setEmployee.setEmailId(request.getParameter("emailId"));
+		setEmployee.setTotalSalary(Integer.parseInt(request.getParameter("totalSalary")));
+		setEmployee.setEmployeeRole(request.getParameter("employeeRole"));
+		setEmployee.setEmployeeStatus(request.getParameter("employeeStatus"));
 		HttpSession session = request.getSession();
 		Employee employeePOJO = (Employee) session.getAttribute("employeeDetail");
-		employeePOJO.setEmployeeName(request.getParameter("employeeName"));
-		Date date = Date.valueOf(request.getParameter("DOB"));
-		employeePOJO.setDOB(date);
-		employeePOJO.setPhoneNo(request.getParameter("phoneNo"));
-		employeePOJO.setEmailId(request.getParameter("emailId"));
 		if(dataAccessObject.EmployeeDetails.setEmployeeDetails(employeePOJO, employeePOJO)) {
 			request.setAttribute("status", "success");
 		}
 		else {
 			request.setAttribute("status", "failed");
 		}
-		request.getRequestDispatcher("UpdatePersonalDetails.jsp").forward(request, response);
+		request.getRequestDispatcher("RegisterEditEmployee.jsp").forward(request, response);		
 	}
-
 }
