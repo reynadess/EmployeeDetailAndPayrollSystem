@@ -53,7 +53,7 @@
 	  	<input type="text" placeholder="Enter Salary per Annum" name="totalSalary" value="${getEmployee.totalSalary}"><br><br>		
 		<label for="EmployeeRole">Select Employee Role	:</label>
 	  	<select name="employeeRole" id="employeeRole" required>
-	  		<option disabled selected value> -- select an option -- </option>
+	  		<option disabled selected> -- select an option -- </option>
 	  		<option value="Employee" <%
 	  			Employee employee = (Employee) request.getAttribute("getEmployee");
 	  			if(employee != null && employee.getEmployeeRole().equals("Employee")){
@@ -68,7 +68,7 @@
  		</select><br><br>
 	  	<label for="EmployeeStatus">Select Employee Status	:</label>
 	  	<select name="employeeStatus" id="employeeStatus" required>
-	  		<option disabled selected value> -- select an option -- </option>
+	  		<option disabled selected> -- select an option -- </option>
 	  		<option value="active" <%
   				if(employee != null && employee.getEmployeeStatus().equals("active")){
 	  				out.println("selected");

@@ -30,50 +30,31 @@
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>
 	<form action = "SetEmployeeDetailsServlet" method="post">
-		
-		<input type="number" name="employeeId" min="1000" required value="${getEmployee.employeeId}" style="display:none;">
 		<label>Employee Name:</label>
-		<input type="text" name="employeeName" required value="${getEmployee.employeeName}" required>
+		<input type="text" name="employeeName" required>
 		<br><br>
 		<label>Date of Birth:</label>
-	  	<input type="date" name="DOB" value="${getEmployee.DOB}" required/>
+	  	<input type="date" name="DOB" required/>
 	  	<br><br>
 		<label for="phone">Phone No:</label>
 		<input type="tel" id="phone" name="phoneNo" placeholder="1234567890" pattern="[0-9]{10}" required value="${getEmployee.phoneNo}" required>
 		<br/><br>
 		<label>Email ID:</label>
-		<input type="email" name="emailId" required value="${getEmployee.emailId}" required>
+		<input type="email" name="emailId" required>
 		<br><br>
 		<label for="SalaryCTC">Salary per Annum	:</label>
-	  	<input type="text" placeholder="Enter Salary per Annum" name="totalSalary" value="${getEmployee.totalSalary}"><br><br>		
+	  	<input type="text" placeholder="Enter Salary per Annum" name="totalSalary" required><br><br>		
 		<label for="EmployeeRole">Select Employee Role	:</label>
 	  	<select name="employeeRole" id="employeeRole" required>
-	  		<option disabled selected value> -- select an option -- </option>
-	  		<option value="Employee" <%
-	  			Employee employee = (Employee) request.getAttribute("getEmployee");
-	  			if(employee != null && employee.getEmployeeRole().equals("Employee")){
-	  				out.println("selected");
-	  			}
-	  		%>>Employee</option>
-	  		<option value="Admin" <%
-	  			if(employee != null && employee.getEmployeeRole().equals("Admin")){
-	  				out.println("selected");
-	  			}
-	  		%>>Admin</option>	
+	  		<option disabled selected> -- select an option -- </option>
+	  		<option value="Employee">Employee</option>
+	  		<option value="Admin">Admin</option>	
  		</select><br><br>
 	  	<label for="EmployeeStatus">Select Employee Status	:</label>
 	  	<select name="employeeStatus" id="employeeStatus" required>
-	  		<option disabled selected value> -- select an option -- </option>
-	  		<option value="active" <%
-  				if(employee != null && employee.getEmployeeStatus().equals("active")){
-	  				out.println("selected");
-	  			}
-	  		%>>Active</option>
-	  		<option value="inactive" <%
-  				if(employee != null && employee.getEmployeeStatus().equals("inactive")){
-	  				out.println("selected");
-	  			}	  		
-	  		%>>Inactive</option>	
+	  		<option disabled selected> -- select an option -- </option>
+	  		<option value="active">Active</option>
+	  		<option value="inactive">Inactive</option>	
 	  	</select><br><br>
 		<input class="submit" type="submit" value="Register">		
 	</form>
