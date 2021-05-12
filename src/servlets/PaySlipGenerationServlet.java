@@ -1,11 +1,15 @@
 package servlets;
 
 import java.io.IOException;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dataAccessObject.DBConnection;
 
 /**
  * Servlet implementation class PaySlipGenerationServlet
@@ -13,7 +17,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PaySlipGenerationServlet")
 public class PaySlipGenerationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	boolean connected = false;
+
+	public void init(ServletConfig config) throws ServletException {
+		if(DBConnection.makeConnection()) {
+			connected = true;
+			System.out.println("Connection to database created");
+		}
+		else {
+			System.out.println("Failed to connect to Database");
+			
+		}
+	}
+	
+	public void destroy(ServletConfig config) throws ServletException {
+		if(connected) {
+			DBConnection.destroyConnection();
+		}
+	}
+	
     /**
      * @see HttpServlet#HttpServlet()
      */

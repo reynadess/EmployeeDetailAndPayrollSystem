@@ -29,7 +29,7 @@
 	<form  action="PaySlipMonth.jsp" method="post">
 		<input type="submit" value="View Pay Slip">
 	</form><br>
-	<form action="RegisterEditEmployee.jsp" method="post">
+	<form action="RegisterEmployee.jsp" method="post">
 		<input  type="submit" value="Register Employee">
 	</form><br>
 	<form action="RegisterEditEmployee.jsp" method="post">
