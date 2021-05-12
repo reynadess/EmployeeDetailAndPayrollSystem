@@ -53,8 +53,8 @@ public class UserLoginServlet extends HttpServlet {
 			if(UserLoginValidation.login(employeeId, password)) {
 				HttpSession session = request.getSession();
 				Employee employeeDetail = EmployeeDetails.getEmployeeDetails(employeeId);
-				session.setAttribute("employeeDetail", employeeDetail);
 				if(employeeDetail.getEmployeeStatus().equals("active")) {
+					session.setAttribute("employeeDetail", employeeDetail);
 					request.setAttribute("status", "success");
 					if(employeeDetail.getEmployeeRole().equals("Admin")) {
 						response.sendRedirect("WelcomeAdmin.jsp");
@@ -63,9 +63,9 @@ public class UserLoginServlet extends HttpServlet {
 						response.sendRedirect("WelcomeEmployee.jsp");
 					}
 				}
-				else {
+				else{
 					request.setAttribute("status", "inactive");
-					RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");  
+					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
 			        rd.forward(request, response);
 				}
 			}

@@ -32,7 +32,7 @@
 	<form action="GetEmployeeDetailsServlet" method="get">
 		<label for="EmployeeID">Employee ID:</label>
 		<input type="number" name="employeeId" min="1000" required>
-		<input class="submit" type="submit" onclick= "setValues()" value="GET">
+		<input class="submit" type="submit" value="GET">
 		<br><br>
 	</form>
 	<form action = "SetEmployeeDetailsServlet" method="post">
