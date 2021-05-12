@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edit Employee Details</title>
+<title>Update Employee Details</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 		}
 	}
 	%>
-	<h1>Employee Details</h1>
+	<h1>Update Employee Details</h1>
 	<form class="home" action="Home" method="post">
 		<input class="button" type="submit" value="Home">
 	</form><br>

@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edit Employee Details</title>
+<title>Register Employee Details</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 		}
 	}
 	%>
-	<h1>Employee Details</h1>
+	<h1>Register Employee Details</h1>
 	<form class="home" action="Home" method="post">
 		<input class="button" type="submit" value="Home">
 	</form><br>
@@ -30,9 +30,7 @@
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>
 	<form action = "SetEmployeeDetailsServlet" method="post">
-		<label for="EmployeeID">Employee ID:</label>
-		<input type="number" name="employeeId" min="1000" required>
-		<br><br>
+		
 		<input type="number" name="employeeId" min="1000" required value="${getEmployee.employeeId}" style="display:none;">
 		<label>Employee Name:</label>
 		<input type="text" name="employeeName" required value="${getEmployee.employeeName}" required>
