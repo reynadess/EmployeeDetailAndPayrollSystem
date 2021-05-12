@@ -29,10 +29,12 @@
 	<form class="logout" action="Logout" method="post">
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>
-	<form action = "SetEmployeeDetailsServlet" method="post">
+	<form action = "RegisterEmployeeServlet" method="post">
 		<label>Employee Name:</label>
 		<input type="text" name="employeeName" required>
 		<br><br>
+		<label for="Password">Password:</label>
+	  	<input type="password" name="password" required><br><br>		
 		<label>Date of Birth:</label>
 	  	<input type="date" name="DOB" required/>
 	  	<br><br>
@@ -43,8 +45,8 @@
 		<input type="email" name="emailId" required>
 		<br><br>
 		<label for="SalaryCTC">Salary per Annum	:</label>
-	  	<input type="text" placeholder="Enter Salary per Annum" name="totalSalary" required><br><br>		
-		<label for="EmployeeRole">Select Employee Role	:</label>
+	  	<input type="number" placeholder="Enter Salary per Annum" min="100000" name="totalSalary" required><br><br>		
+		<label for="EmployeeRole">Select Employee Role:</label>
 	  	<select name="employeeRole" id="employeeRole" required>
 	  		<option disabled selected> -- select an option -- </option>
 	  		<option value="Employee">Employee</option>
@@ -58,7 +60,7 @@
 	  	</select><br><br>
 		<input class="submit" type="submit" value="Register">		
 	</form>
-	<form action="RegisterEditEmployee.jsp" method="post">
+	<form action="RegisterEmployee.jsp" method="post">
 		<input class="submit" type="submit" value="Reset">
 	</form>
 	<p id = "status" class="status">
@@ -66,10 +68,10 @@
 	String status = (String) request.getAttribute("status");
 	if(status != null) {
 		if(status.equals("success")) {
-			out.println("Updated Details!");
+			out.println("Registered Details!");
 		}
 		else if(status.equals("failed")) {
-			out.println("Failed to fetch!");
+			out.println("Failed to Register!");
 		}
 		else if(status.equals("notFound")) {
 			out.println("Failed to fetch!");

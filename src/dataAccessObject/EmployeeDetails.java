@@ -7,7 +7,34 @@ import java.util.Date;
 
 import EmployeeDetails.Employee;
 
+import dataAccessObject.UserLoginValidation;
 public class EmployeeDetails {
+	
+	public static boolean createEmployeeDetails(Employee employee, String password, Employee currentEmployee) {
+		String query = "INSERT INTO employee_payroll.employee(employeeName, employeePassword, employeeRole, DOB, totalSalary, phoneNo, emailId, employeeStatus, createdBy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		try {
+			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
+			preparedStatement.setString(1, employee.getEmployeeName());
+			preparedStatement.setString(2, UserLoginValidation.hashPassword(password));
+			preparedStatement.setString(3, employee.getEmployeeRole());
+			preparedStatement.setDate(4, (java.sql.Date) employee.getDOB());
+			preparedStatement.setInt(5, employee.getTotalSalary());
+			preparedStatement.setString(6, employee.getPhoneNo());
+			preparedStatement.setString(7, employee.getEmailId());
+			preparedStatement.setString(8, employee.getEmployeeStatus());
+			preparedStatement.setInt(9, currentEmployee.getEmployeeId());
+			int result = preparedStatement.executeUpdate();
+			if(result >= 0) {
+				System.out.println("Updated!");
+				return true;
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+		return false;
+	}
 	
 	public static boolean setEmployeeDetails(Employee employee, Employee currentEmployee) {
 		java.util.Date date = new java.util.Date();

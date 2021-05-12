@@ -17,6 +17,9 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(); 
 		Employee employeePOJO = (Employee) session.getAttribute("employeeDetail");
+		if(employeePOJO == null) {
+			response.sendRedirect("index.jsp");
+		}
 		if(employeePOJO.getEmployeeRole().equals("Admin")) {
 			response.sendRedirect("WelcomeAdmin.jsp");
 		}

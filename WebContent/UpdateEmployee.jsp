@@ -50,7 +50,7 @@
 		<input type="email" name="emailId" required value="${getEmployee.emailId}" required>
 		<br><br>
 		<label for="SalaryCTC">Salary per Annum	:</label>
-	  	<input type="text" placeholder="Enter Salary per Annum" name="totalSalary" value="${getEmployee.totalSalary}"><br><br>		
+	  	<input type="number" placeholder="Enter Salary per Annum" name="totalSalary" min="100000" value="${getEmployee.totalSalary}"><br><br>		
 		<label for="EmployeeRole">Select Employee Role	:</label>
 	  	<select name="employeeRole" id="employeeRole" required>
 	  		<option disabled selected> -- select an option -- </option>
