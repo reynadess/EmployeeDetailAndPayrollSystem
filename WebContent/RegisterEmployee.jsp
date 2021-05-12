@@ -32,7 +32,8 @@
 	<form action = "SetEmployeeDetailsServlet" method="post">
 		<label for="EmployeeID">Employee ID:</label>
 		<input type="number" name="employeeId" min="1000" required>
-		<br><br>	
+		<br><br>
+		<input type="number" name="employeeId" min="1000" required value="${getEmployee.employeeId}" style="display:none;">
 		<label>Employee Name:</label>
 		<input type="text" name="employeeName" required value="${getEmployee.employeeName}" required>
 		<br><br>
@@ -48,16 +49,34 @@
 		<label for="SalaryCTC">Salary per Annum	:</label>
 	  	<input type="text" placeholder="Enter Salary per Annum" name="totalSalary" value="${getEmployee.totalSalary}"><br><br>		
 		<label for="EmployeeRole">Select Employee Role	:</label>
-	  	<select name="employeRole"  required>
-	  	<option value="Employee">Employee</option>
-	  	<option value="Admin">Admin</option>	
+	  	<select name="employeeRole" id="employeeRole" required>
+	  		<option disabled selected value> -- select an option -- </option>
+	  		<option value="Employee" <%
+	  			Employee employee = (Employee) request.getAttribute("getEmployee");
+	  			if(employee != null && employee.getEmployeeRole().equals("Employee")){
+	  				out.println("selected");
+	  			}
+	  		%>>Employee</option>
+	  		<option value="Admin" <%
+	  			if(employee != null && employee.getEmployeeRole().equals("Admin")){
+	  				out.println("selected");
+	  			}
+	  		%>>Admin</option>	
  		</select><br><br>
 	  	<label for="EmployeeStatus">Select Employee Status	:</label>
-	  	<select name="employeStatus">
-	  	<option value="Active">Active</option>
-	  	<option value="Inactive">Inactive</option>	
+	  	<select name="employeeStatus" id="employeeStatus" required>
+	  		<option disabled selected value> -- select an option -- </option>
+	  		<option value="active" <%
+  				if(employee != null && employee.getEmployeeStatus().equals("active")){
+	  				out.println("selected");
+	  			}
+	  		%>>Active</option>
+	  		<option value="inactive" <%
+  				if(employee != null && employee.getEmployeeStatus().equals("inactive")){
+	  				out.println("selected");
+	  			}	  		
+	  		%>>Inactive</option>	
 	  	</select><br><br>
-	  	<script type="text/javascript"> </script>
 		<input class="submit" type="submit" value="Register">		
 	</form>
 	<form action="RegisterEditEmployee.jsp" method="post">
@@ -85,6 +104,5 @@
 	}
 	%>
 	</p>
-
 </body>
 </html>
