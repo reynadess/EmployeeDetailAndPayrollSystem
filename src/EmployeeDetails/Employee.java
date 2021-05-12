@@ -12,6 +12,9 @@ public class Employee {
 	String emailId;
 	String employeeStatus;
 	
+	public Employee() {
+	}
+	
 	public Employee(int id, String name, String role, Date dob, int totalSalary2, String phone, String email, String employeeStatus) {
 		this.employeeId = id;
 		this.employeeName = name;
