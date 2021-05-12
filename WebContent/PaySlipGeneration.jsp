@@ -23,8 +23,8 @@
 	</form>	<br><br>
 	<form action="PaySlipGenerationServlet" method="post">
 		<label for="Month">Select the month to generate pay slip	:</label>
-		<input type="month" name="salaryMonth"><br>
-		<label for="Working Days">Enter the number of working days:</label>
+		<input type="month" name="salaryMonth"><br><br>
+		<label class="lable" for="Working Days">No.of working days:</label>
 	  	<input type="number" name="workingDays" min="0" max="31"><br><br>
 		<input class="submit" type="submit" value="Submit">
 	</form>

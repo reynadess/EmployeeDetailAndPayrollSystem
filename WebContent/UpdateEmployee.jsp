@@ -30,28 +30,28 @@
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>
 	<form action="GetEmployeeDetailsServlet" method="get">
-		<label for="EmployeeID">Employee ID:</label>
+		<label class="lable" for="EmployeeID">Employee ID:</label>
 		<input type="number" name="employeeId" min="1000" required>
-		<input class="submit" type="submit" value="GET">
+		<input style="align-self: " class="button" class="submit" type="submit" value="GET">
 		<br><br>
 	</form>
 	<form action = "SetEmployeeDetailsServlet" method="post">
 		<input type="number" name="employeeId" min="1000" required value="${getEmployee.employeeId}" style="display:none;">
-		<label>Employee Name:</label>
+		<label class="lable" >Employee Name:</label>
 		<input type="text" name="employeeName" required value="${getEmployee.employeeName}" required>
 		<br><br>
-		<label>Date of Birth:</label>
-	  	<input type="date" name="DOB" value="${getEmployee.DOB}" required/>
-	  	<br><br>
-		<label for="phone">Phone No:</label>
-		<input type="tel" id="phone" name="phoneNo" placeholder="1234567890" pattern="[0-9]{10}" required value="${getEmployee.phoneNo}" required>
+		<label class="lable" for="phone">Phone No:</label>
+		<input type="tel" id="phone" name="phoneNo" pattern="[0-9]{10}" required value="${getEmployee.phoneNo}" required>
 		<br/><br>
-		<label>Email ID:</label>
+		<label class="lable">Email ID:</label>
 		<input type="email" name="emailId" required value="${getEmployee.emailId}" required>
 		<br><br>
-		<label for="SalaryCTC">Salary per Annum	:</label>
-	  	<input type="number" placeholder="Enter Salary per Annum" name="totalSalary" min="100000" value="${getEmployee.totalSalary}"><br><br>		
-		<label for="EmployeeRole">Select Employee Role	:</label>
+		<label class="lable" for="SalaryCTC">Salary per Annum	:</label>
+	  	<input type="number"  name="totalSalary" min="100000" value="${getEmployee.totalSalary}"><br><br>
+	  	<label class="lable">Date of Birth:</label>
+	  	<input type="date" name="DOB" value="${getEmployee.DOB}" required/>
+	  	<br><br>		
+		<label class="lable" for="EmployeeRole">Employee Role	:</label>
 	  	<select name="employeeRole" id="employeeRole" required>
 	  		<option disabled selected> -- select an option -- </option>
 	  		<option value="Employee" <%
@@ -66,7 +66,7 @@
 	  			}
 	  		%>>Admin</option>	
  		</select><br><br>
-	  	<label for="EmployeeStatus">Select Employee Status	:</label>
+	  	<label class="lable" for="EmployeeStatus">Employee Status	:</label>
 	  	<select name="employeeStatus" id="employeeStatus" required>
 	  		<option disabled selected> -- select an option -- </option>
 	  		<option value="active" <%
@@ -81,7 +81,7 @@
 	  		%>>Inactive</option>	
 	  	</select><br><br>
 		<input class="submit" type="submit" value="Update">		
-	</form>
+	</form><br>
 	<form action="UpdateEmployee.jsp" method="post">
 		<input class="submit" type="submit" value="Reset">
 	</form>

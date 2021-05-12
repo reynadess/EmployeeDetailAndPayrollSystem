@@ -23,18 +23,18 @@
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>	
 	<form action = "UpdatePersonalDetailsServlet" method="post">
-		<label>Employee Name:</label>
+		<label class="lable">Employee Name:</label>
 		<input type="text" name="employeeName" value="${employeeDetail.employeeName}" required>
 		<br><br>
-		<label>Date of Birth:</label>
-	  	<input type="date" name="DOB" value="${employeeDetail.DOB}"/>
-	  	<br><br>
-		<label for="phone">Phone No:</label>
+		<label class="lable" for="phone">Phone No:</label>
 		<input type="tel" id="phone" name="phoneNo" placeholder="**********" value="${employeeDetail.phoneNo}" pattern="[0-9]{10}" required>
 		<br/><br>
-		<label>Email ID:</label>
+		<label class="lable" >Email ID:</label>
 		<input type="email" name="emailId" value= "${employeeDetail.emailId}" required>
 		<br><br>
+		<label class="lable">Date of Birth:</label>
+	  	<input type="date" name="DOB" value="${employeeDetail.DOB}"/>
+	  	<br><br>
 		<input class="submit" type="submit" value="Update">		
 	</form><br>
 		<form action="UpdatePersonalDetails.jsp" method="post">

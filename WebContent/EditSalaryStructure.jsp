@@ -16,16 +16,16 @@
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>
 	<form action = "" method="post">	
-		<label>Base Salary:</label>
+		<label class="lable">Base Salary:</label>
 		<input type="number" placeholder="Enter in percentage" name="baseSalary" required>
 		<br><br>
-		<label>Housing Rent Allowance:</label>
+		<label class="lable">Housing Rent Allowance:</label>
 		<input type="number" placeholder="Enter in percentage" name="housingRentAllowance" required>
 		<br><br>
-		<label>Traveling Allowance:</label>
+		<label class="lable">Traveling Allowance:</label>
 		<input type="number" placeholder="Enter in percentage" name="travellingAllowance" required>
 		<br><br>
-		<label>Employee Provident Fund:</label>
+		<label class="lable">Employee Provident Fund:</label>
 		<input type="number" placeholder="Enter in percentage" name="employeeProvidientFund" required>
 		<br><br>
 		<input class="submit" type="submit" value="Update">

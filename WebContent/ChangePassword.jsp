@@ -23,10 +23,10 @@
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>
 	<form action = "ChangePasswordServlet" method="post">
-		<label for="Current Password">Current Password:</label>
+		<label class="lable" for="Current Password">Current Password:</label>
 		<input type="password" name="currentPassword">
 		<br><br>
-		<label for="New Password">New Password:</label>
+		<label class="lable" for="New Password">New Password:</label>
 	  	<input type="password" name="newPassword"><br><br><br>
 		<input class="submit" type="submit" value="Submit">		
 	</form>

@@ -26,3 +26,8 @@ p.status{
 	color: red;
 	font-size: 150%;
 }
+form.lable,label.lable{
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}

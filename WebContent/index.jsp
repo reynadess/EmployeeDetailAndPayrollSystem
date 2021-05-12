@@ -25,9 +25,9 @@
 	</form><br>
 	<form action="UserLoginServlet" method="post">
 	  <p>
-	  <label for="EmployeeID">Employee ID:</label>
+	  <label class="lable" for="EmployeeID">Employee ID:</label>
 	  <input type="number" name="employeeId" min="1000" required><br><br>
-	  <label for="Password">Password:</label>
+	  <label class="lable" for="Password">Password:</label>
 	  <input type="password" name="password" required><br><br>
 	  <input class="login" type="submit" value="Login">
 	  </p>
