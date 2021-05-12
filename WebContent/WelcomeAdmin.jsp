@@ -32,7 +32,7 @@
 	<form action="RegisterEmployee.jsp" method="post">
 		<input  type="submit" value="Register Employee">
 	</form><br>
-	<form action="RegisterEditEmployee.jsp" method="post">
+	<form action="UpdateEmployee.jsp" method="post">
 		<input type="submit" value="Update Employee Details">
 	</form><br>
 	<form action="UpdatePersonalDetails.jsp" method="post">

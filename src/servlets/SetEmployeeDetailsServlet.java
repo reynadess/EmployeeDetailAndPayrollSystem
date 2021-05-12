@@ -74,12 +74,12 @@ public class SetEmployeeDetailsServlet extends HttpServlet {
 		setEmployee.setEmployeeStatus(request.getParameter("employeeStatus"));
 		HttpSession session = request.getSession();
 		Employee employeePOJO = (Employee) session.getAttribute("employeeDetail");
-		if(dataAccessObject.EmployeeDetails.setEmployeeDetails(employeePOJO, employeePOJO)) {
+		if(dataAccessObject.EmployeeDetails.setEmployeeDetails(setEmployee, employeePOJO)) {
 			request.setAttribute("status", "success");
 		}
 		else {
 			request.setAttribute("status", "failed");
 		}
-		request.getRequestDispatcher("RegisterEditEmployee.jsp").forward(request, response);		
+		request.getRequestDispatcher("UpdateEmployee.jsp").forward(request, response);		
 	}
 }
