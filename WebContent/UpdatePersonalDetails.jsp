@@ -24,28 +24,28 @@
 	</form>	<br><br>	
 	<form action = "UpdatePersonalDetailsServlet" method="post">
 		<label>Employee Name:</label>
-		<input type="text" name="employeeName" value=${employeeDetail.employeeName} required>
+		<input type="text" name="employeeName" value="${employeeDetail.employeeName}" required>
 		<br><br>
 		<label>Date of Birth:</label>
-	  	<input type="date" name="DOB" <fmt:formatDate value="${employeeDetail.DOB}"/>/>
+	  	<input type="date" name="DOB" value="${employeeDetail.DOB}"/>
 	  	<br><br>
 		<label for="phone">Phone No:</label>
-		<input type="tel" id="phone" name="phoneNo" placeholder="1234567890" value=${employeeDetail.phoneNo} pattern="[0-9]{10}" required>
+		<input type="tel" id="phone" name="phoneNo" placeholder="**********" value="${employeeDetail.phoneNo}" pattern="[0-9]{10}" required>
 		<br/><br>
 		<label>Email ID:</label>
-		<input type="email" name="emailId" value= ${employeeDetail.emailId} required>
+		<input type="email" name="emailId" value= "${employeeDetail.emailId}" required>
 		<br><br>
-		<input class="submit" type="submit" value="Edit">		
-	</form>
+		<input class="submit" type="submit" value="Update">		
+	</form><br>
 		<form action="UpdatePersonalDetails.jsp" method="post">
-		<input type="submit" value="Reset">
+		<input class="submit" type="submit" value="Reset">
 	</form>
 	<p id = "status" class="status">
 	<%
 	String status = (String) request.getAttribute("status");
 	if(status != null) {
 		if(status.equals("success")) {
-			out.println("Updated Details!");
+			out.println("Details Updated Successfully");
 		}
 		else if(status.equals("loginFailed")) {
 			out.println("Username or Password Wrong!");
