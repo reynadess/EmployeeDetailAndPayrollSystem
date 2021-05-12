@@ -52,11 +52,11 @@ public class GetEmployeeDetailsServlet extends HttpServlet {
 		Employee getEmployee = EmployeeDetails.getEmployeeDetails(employeeId);
 		if(getEmployee.getEmployeeName() == null) {
 			request.setAttribute("status", "notFound");
-			request.getRequestDispatcher("RegisterEditEmployee.jsp").forward(request, response);
+			request.getRequestDispatcher("UpdateEmployee.jsp").forward(request, response);
 		}
 		System.out.println(getEmployee);
 		request.setAttribute("getEmployee", getEmployee);
-		request.getRequestDispatcher("RegisterEditEmployee.jsp").forward(request, response);
+		request.getRequestDispatcher("UpdateEmployee.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
