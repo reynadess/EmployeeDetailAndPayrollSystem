@@ -50,7 +50,7 @@
 	  	<select name="employeeRole" id="employeeRole" required>
 	  		<option disabled selected> -- select an option -- </option>
 	  		<option value="Employee">Employee</option>
-	  		<option value="Admin">Admin</option>	
+	  		<option value="Admin">Administrator</option>	
  		</select><br><br>
 	  	<label for="EmployeeStatus">Select Employee Status	:</label>
 	  	<select name="employeeStatus" id="employeeStatus" required>
@@ -68,16 +68,16 @@
 	String status = (String) request.getAttribute("status");
 	if(status != null) {
 		if(status.equals("success")) {
-			out.println("Registered Details!");
+			out.println("Employee has been registered Successfully.");
 		}
 		else if(status.equals("failed")) {
 			out.println("Failed to Register!");
 		}
 		else if(status.equals("notFound")) {
-			out.println("Failed to fetch!");
+			out.println("Employee details not found");
 		}
 		else if(status.equals("inactive")) {
-			out.println("No longer working with us!");
+			out.println("Sorry, You are no longer employee with us!");
 		}
 		else if(status.equals("databaseConnectionFail")) {
 			out.println("Connection to database Failed!");
