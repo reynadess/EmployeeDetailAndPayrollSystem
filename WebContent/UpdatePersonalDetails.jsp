@@ -15,14 +15,14 @@
 		response.sendRedirect("index.jsp");
 	}
 	%>
-	<h1>Update Personal Details</h1>
+	<h1>Update Employee Details</h1>
 	<form class="home" action="Home" method="post">
 		<input class="button" type="submit" value="Home">
 	</form><br>
 	<form class="logout" action="Logout" method="post">
 		<input class="button" type="submit" value="Logout">
 	</form>	<br><br>	
-	<form action = "UpdatePersonalDetailsServlet" method="post">
+	<form action = "GetEmployeeDetailsServlet" method="post">
 		<label>Employee Name:</label>
 		<input type="text" name="employeeName" value="${employeeDetail.employeeName}" required>
 		<br><br>
