@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.sql.Date;
+
 import dataAccessObject.DBConnection;
+import dataAccessObject.monthWorkingDays;
 
 /**
  * Servlet implementation class PaySlipGenerationServlet
@@ -56,8 +59,18 @@ public class PaySlipGenerationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String monthYearString = request.getParameter("salaryMonth");
+		monthYearString = monthYearString + "-01";
+		int workingDays = Integer.parseInt(request.getParameter("workingDays"));
+		System.out.println(monthYearString + " " + workingDays);
+		Date monthYear = Date.valueOf(monthYearString);
+		if(monthWorkingDays.setMonthWorkingDays(monthYear, workingDays)) {
+			request.setAttribute("status", "success");
+		}
+		else {
+			request.setAttribute("status", "failed");
+		}
+		request.getRequestDispatcher("PaySlipGeneration.jsp").forward(request, response);
 	}
 
 }

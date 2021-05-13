@@ -28,5 +28,30 @@
 	  	<input type="number" name="workingDays" min="0" max="31"><br><br>
 		<input class="submit" type="submit" value="Submit">
 	</form>
+	<p class="status">
+	<%
+	String status = (String) request.getAttribute("status");
+	if(status != null) {
+		if(status.equals("success")) {
+			out.println("Updated Details!");
+		}
+		else if(status.equals("failed")) {
+			out.println("Failed to update!");
+		}
+		else if(status.equals("notFound")) {
+			out.println("Failed to fetch!");
+		}
+		else if(status.equals("ownDetails")) {
+			out.println("Cannot edit your own details!");
+		}
+		else if(status.equals("inactive")) {
+			out.println("No longer working with us!");
+		}
+		else if(status.equals("databaseConnectionFail")) {
+			out.println("Connection to database Failed!");
+		}
+	}
+	%>
+	</p>	
 </body>
 </html>

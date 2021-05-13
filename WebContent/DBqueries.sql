@@ -51,3 +51,8 @@ CREATE TABLE salary_percentage (
 INSERT INTO employee(employeeName, employeePassword, employeeRole, DOB, totalSalary, phoneNo, emailId, createdBy) VALUES ("Admin", "8c6976e5b541415bde98bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "Admin", "2006-01-01", 500000,"1234567890", "admin@medplus.com", 1000);
 
 INSERT INTO salary_percentage (baseSalary, housingRentAllowance, travellingAllowance, employeeProvidientFund) VALUES (60, 20, 8, 12);
+
+CREATE TABLE employee_payroll.month_working_days(
+	monthYear DATE NOT NULL PRIMARY KEY,
+    workingDays INT NOT NULL
+);
