@@ -22,11 +22,12 @@
 		}
 	}
 	%>
+	<div id="boxes">
 	<h1>Welcome ${employeeDetail.employeeName}</h1><br>
 	<form class="logout" action="Logout" method="post">
 		<input class="button" type="submit" value="Logout">
 	</form><br><br>
-	
+	<div id = "leftbox">
 	<form class="horizontal" action="RegisterEmployee.jsp" method="post">
 		<input  type="submit" value="Register Employee">
 	</form>
@@ -43,7 +44,8 @@
 	<form class="horizontal" action="PaySlipGeneration.jsp" method="post">
 		<input type="submit" value="Generate Pay Slip for Employees">
 	</form><br><br><br><br><br><br>	
-	
+	</div>
+	<div id = "rightbox">
 	<form class="horizontal" action="ViewPersonalDetails.jsp" method="post">
 		<input type="submit" value="View Personal Details">
 	</form>
@@ -57,6 +59,7 @@
 	<form class="horizontal"  action="PaySlipMonth.jsp" method="post">
 		<input type="submit" value="View Personal Pay Slip">
 	</form>
-
+	</div>
+	</div>
 </body>
 </html>
