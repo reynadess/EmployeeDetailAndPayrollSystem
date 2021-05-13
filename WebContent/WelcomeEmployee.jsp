@@ -37,7 +37,7 @@
 		<input type="submit" value="Change Password">
 	</form>
 	
-	<form class="horizontal" action="PaySlipEmployee" method="post">
+	<form class="horizontal" action="PaySlipMonth.jsp" method="post">
 		<input type="submit" value="View Pay Slip">
 	</form>
 </body>

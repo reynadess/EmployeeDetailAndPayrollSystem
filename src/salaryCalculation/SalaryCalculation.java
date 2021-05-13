@@ -8,7 +8,7 @@ import EmployeeDetails.EmployeeSalary;
 import dataAccessObject.Attendance;
 import dataAccessObject.EmployeeDetails;
 import salaryStructureDetails.SalaryStructure;
-import salaryStrucure.Salary;
+import salaryStructure.Salary;
 
 public class SalaryCalculation {
 

@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import salaryStrucure.Salary;
+import salaryStructure.Salary;
 
 
 public class SalaryStructure {
@@ -54,7 +54,7 @@ public class SalaryStructure {
 		return false;
 	}
 	
-	public static boolean insertSalary(int employeeId, salaryStrucure.Salary salary) {	
+	public static boolean insertSalary(int employeeId, salaryStructure.Salary salary) {	
 		String query = "INSERT INTO employee_payroll.pay_slip_generation (employeeId, grossBaseSalary, housingRentAllowance, travellingAllowance, employeeProvidientFund, lossOfPay, dearnessAllowance, otherAllowance, finalGrossSalary, finalNetSalary, netBaseSalary) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		try {
 			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
@@ -105,8 +105,8 @@ public class SalaryStructure {
 				salary.setOtherAllowance(result.getInt(9));
 				salary.setFinalGrossSalary(result.getInt(10));
 				salary.setFinalNetSalary(result.getInt(11));
-				salary.setFinalGrossSalary(result.getInt(12));
-				salary.setNetBaseSalary(result.getInt(13));
+				salary.setNetBaseSalary(result.getInt(12));
+	
 			}
 			return salary;
 		}

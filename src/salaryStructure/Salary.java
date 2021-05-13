@@ -1,4 +1,4 @@
-package salaryStrucure;
+package salaryStructure;
 
 public class Salary {
 	int paySlipId;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import = "salaryStructure.Salary" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,15 +103,23 @@ if(session.getAttribute("employeeDetail") == null ){
 <form class="logout" action="Logout" method="post">
 	<input class="button" type="submit" value="Logout">
 </form>
-<label style="text-align: left">Pay Slip of ""</label>
-<div class="salary-slip" style="background-color: White" >
+
+<form action="GetPaySlipServlet" method="post">
+	<label for="Month">Select the month to view pay slip	:</label>
+	<input type="month" name="salaryMonth"><br><br>
+	<input class="submit" type="submit" value="GET">
+</form>
+<br/> <br/>
+<label style="text-align: left">Pay Slip of ${salary.month}</label>
+
+<div class="salary-slip" style="background-color: White">
 	<table class="empDetail">
 		<tr>
 			<th colspan="2">
 				Employee ID:
 			</th>
             <td>
-            	XXXXXXXXXXX
+            	${employeeDetail.employeeId}
             </td>
             <td colspan="5"></td>
 		</tr>
@@ -119,7 +128,7 @@ if(session.getAttribute("employeeDetail") == null ){
 				Name:
       		</th>
       		<td>
-      			XXXXXXXXXXX
+      			${employeeDetail.employeeName}
       		</td>
       		<td colspan="5"></td>
       	</tr>
@@ -128,16 +137,7 @@ if(session.getAttribute("employeeDetail") == null ){
 				Pay Slip Id:
 			</th>
 			<td>
-				XXXXXXXXXXX
-			</td>
-			<td colspan="5"></td>
-		</tr>
-		<tr>
-			<th colspan="2">
-				No.of LOP Days:
-      		</th>
-			<td>
-				XXXXXXXXXX
+				${salary.paySlipId}
 			</td>
 			<td colspan="5"></td>
 		</tr>
@@ -160,13 +160,13 @@ if(session.getAttribute("employeeDetail") == null ){
 				Basic Salary
 			</th>
 			<td class="myAlign">
-				XXXXXXX
+				${salary.netBaseSalary}
 			</td>
 			<th colspan="3" >
 				Others
 			</th >
 			<td class="myAlign">
-				XXXXXX
+				${salary.otherAllowance}
       		</td>
       	</tr >
       	<tr>
@@ -174,13 +174,13 @@ if(session.getAttribute("employeeDetail") == null ){
       			Dearness Allowance
       		</th>
       		<td class="myAlign">
-      			XXXXXXX
+      			${salary.dearnessAllowance}
 			</td>
 			<th colspan="3">
 				Employee Provident Fund
 			</th>
 			<td  class="myAlign">
-				XXXXXX
+				${salary.employeeProvidientFund}
 			</td>
 		</tr >
 		<tr>
@@ -188,7 +188,7 @@ if(session.getAttribute("employeeDetail") == null ){
 				Traveling Allowance
 			</th>
 			<td class="myAlign">
-				XXXXXXX
+				${salary.travellingAllowance}
       		</td>
       		<th colspan="4"></th>
       	</tr>
@@ -197,7 +197,7 @@ if(session.getAttribute("employeeDetail") == null ){
       			House Rent Allowance
       		</th>
       		<td class="myAlign">
-      			XXXXXXX
+      			${salary.housingRentAllowance}
       		</td>
       		<th colspan="4"></th>
       	</tr >
@@ -206,19 +206,35 @@ if(session.getAttribute("employeeDetail") == null ){
       			Total Payments
       		</th>
       		<td class="myAlign">
-      			ZZZZZZ
+      			<%
+      				Salary salary = (Salary) request.getAttribute("salary");
+	      			if(salary != null){
+	      				int total = salary.getNetBaseSalary() + salary.getDearnessAllowance() + salary.getTravellingAllowance() + salary.getHousingRentAllowance();
+	      				out.println(total);
+	      			}else{
+	      				out.println(0);
+	      			}
+      			%>
       		</td>
       		<th colspan="3" >
       			Total Deductions
       		</th >
       		<td class="myAlign">
-      			ZZZZZZ
+      			<%	
+      				if(salary != null) {
+	  					int totalDeductions = salary.getOtherAllowance() + salary.getEmployeeProvidientFund();
+	  					out.println(totalDeductions);
+      				}
+      				else{
+      					out.println(0);
+      				}
+  				%>
       		</td>
       	</tr>
 	</table >
 </div >
-<br><label >Gross Salary	:	XXXXX</label><br><br>
-<label >Loss Of Pay		:	XXXXX</label><br><br>
-<label>Net Salary Credited	:	XXXXX</label>
+<br><label >Gross Salary	:	${salary.finalGrossSalary}</label><br><br>
+<label >Loss Of Pay		:	${salary.lossOfPay}</label><br><br>
+<label>Net Salary Credited	:	${salary.finalNetSalary}</label>
 </body>
 </html>
