@@ -27,14 +27,18 @@
 	<form class="logout" action="Logout" method="post">
 	<input class="button" type="submit" value="Logout">
 	</form><br>
-	<form action="PaySlipEmployee" method="post">
-		<input type="submit" value="View Pay Slip">
-	</form><br><br>
-	<form action="ChangePassword.jsp" method="post">
-		<input type="submit" value="Change Password">
-	</form><br><br>
-	<form action="UpdatePersonalDetails.jsp" method="post">
+	<form class="horizontal" action="ViewPersonalDetails.jsp" method="post">
+		<input type="submit" value="View Personal Details">
+	</form>
+	<form class="horizontal" action="UpdatePersonalDetails.jsp" method="post">
 		<input type="submit" value="Update Personal Details">
+	</form>
+	<form class="horizontal" action="ChangePassword.jsp" method="post">
+		<input type="submit" value="Change Password">
+	</form>
+	
+	<form class="horizontal" action="PaySlipEmployee" method="post">
+		<input type="submit" value="View Pay Slip">
 	</form>
 </body>
 </html>
