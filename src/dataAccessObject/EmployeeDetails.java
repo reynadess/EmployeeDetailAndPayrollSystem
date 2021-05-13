@@ -3,10 +3,11 @@ package dataAccessObject;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 import EmployeeDetails.Employee;
-
+import EmployeeDetails.EmployeeSalary;
 import dataAccessObject.UserLoginValidation;
 public class EmployeeDetails {
 	
@@ -95,5 +96,26 @@ public class EmployeeDetails {
 		}
 		Employee EmployeeDetail = new Employee(employeeId, employeeName, employeeRole, (java.sql.Date) DOB, totalSalary, phoneNo, emailId, employeeStatus);
 		return EmployeeDetail;
+	}
+	
+	public static ArrayList<EmployeeSalary> getEmployeeDetails() {
+		String query = "SELECT employeeId, totalSalary FROM employee_payroll.employee WHERE employeeStatus = ? ;";
+		int employeeId = 0, employeeSalary = 0;
+		ArrayList<EmployeeSalary> employeeDetails = new ArrayList<EmployeeSalary>();
+		try {
+			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
+			preparedStatement.setString(1, "active");
+			ResultSet result = preparedStatement.executeQuery();
+			while(result.next()) {
+				employeeId = result.getInt(1);
+				employeeSalary = result.getInt(2);
+				EmployeeSalary empsalary = new EmployeeSalary(employeeId, employeeSalary);
+				employeeDetails.add(empsalary);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}		
+		return employeeDetails;
 	}
 }

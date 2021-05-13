@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,18 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import EmployeeDetails.Employee;
-
-import java.sql.Date;
-
 import dataAccessObject.DBConnection;
-import dataAccessObject.monthWorkingDays;
-
+import dataAccessObject.SalaryStructure;
 /**
- * Servlet implementation class PaySlipGenerationServlet
+ * Servlet implementation class SalaryStructureServlet
  */
-@WebServlet("/PaySlipGenerationServlet")
-public class PaySlipGenerationServlet extends HttpServlet {
+@WebServlet("/SalaryStructureServlet")
+public class SalaryStructureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	boolean connected = false;
 
@@ -41,11 +37,10 @@ public class PaySlipGenerationServlet extends HttpServlet {
 			DBConnection.destroyConnection();
 		}
 	}
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PaySlipGenerationServlet() {
+    public SalaryStructureServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -62,24 +57,21 @@ public class PaySlipGenerationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String monthYearString = request.getParameter("salaryMonth");
-		monthYearString = monthYearString + "-01";
-		int workingDays = Integer.parseInt(request.getParameter("workingDays"));
-		System.out.println(monthYearString + " " + workingDays);
-		Date monthYear = Date.valueOf(monthYearString);
-		
+		if(connected == false) {
+			request.setAttribute("status", "databaseConnectionFail");
+			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");  
+	        rd.forward(request, response);
+	    }
+		salaryStructureDetails.SalaryStructure salaryStructure = dataAccessObject.SalaryStructure.getSalaryStructure();
 		HttpSession session = request.getSession();
-		Employee employee = (Employee) session.getAttribute("employeeDetail");
-		salaryStructureDetails.SalaryStructure salaryPercentage = (salaryStructureDetails.SalaryStructure) dataAccessObject.SalaryStructure.getSalaryStructure();
-		
-		if(monthWorkingDays.setMonthWorkingDays(monthYear, workingDays)) {
-			request.setAttribute("status", "success");
-			salaryCalculation.SalaryCalculation.calculateSalary(salaryPercentage, monthYear, workingDays);
+		if(salaryStructure != null) {
+			session.setAttribute("salaryStructure", salaryStructure);
 		}
 		else {
 			request.setAttribute("status", "failed");
 		}
-		request.getRequestDispatcher("PaySlipGeneration.jsp").forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("EditSalaryStructure.jsp");  
+        rd.forward(request, response);		
 	}
 
 }

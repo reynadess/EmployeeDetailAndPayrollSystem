@@ -51,4 +51,34 @@ public class SalaryStructure {
 		}	
 		return false;
 	}
+	
+	public static boolean insertSalary(int employeeId, salaryStrucure.Salary salary) {	
+		String query = "INSERT INTO employee_payroll.pay_slip_generation (employeeId, grossBaseSalary, housingRentAllowance, travellingAllowance, employeeProvidientFund, lossOfPay, dearnessAllowance, otherAllowance, finalGrossSalary, finalNetSalary, netBaseSalary) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		try {
+			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
+			
+			preparedStatement.setInt(1, employeeId);
+			preparedStatement.setInt(2, salary.getGrossBaseSalary());
+			preparedStatement.setInt(3, salary.getHousingRentAllowance());
+			preparedStatement.setInt(4, salary.getTravellingAllowance());
+			preparedStatement.setInt(5, salary.getEmployeeProvidientFund());
+			preparedStatement.setInt(6, salary.getLossOfPay());
+			preparedStatement.setInt(7, salary.getDearnessAllowance());
+			preparedStatement.setInt(8, salary.getOtherAllowance());
+			preparedStatement.setInt(9, salary.getFinalGrossSalary());
+			preparedStatement.setInt(10, salary.getFinalNetSalary());
+			preparedStatement.setInt(11, salary.getNetBaseSalary());
+			
+			int result = preparedStatement.executeUpdate();
+			if(result >= 0) {
+				System.out.println("Updated!");
+				return true;
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+		return false;		
+	}
 }
