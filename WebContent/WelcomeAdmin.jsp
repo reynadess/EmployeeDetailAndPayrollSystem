@@ -25,27 +25,38 @@
 	<h1>Welcome ${employeeDetail.employeeName}</h1><br>
 	<form class="logout" action="Logout" method="post">
 		<input class="button" type="submit" value="Logout">
-	</form><br>
-	<form  action="PaySlipMonth.jsp" method="post">
-		<input type="submit" value="View Pay Slip">
-	</form><br>
-	<form action="RegisterEmployee.jsp" method="post">
-		<input  type="submit" value="Register Employee">
-	</form><br>
-	<form action="UpdateEmployee.jsp" method="post">
-		<input type="submit" value="Update Employee Details">
-	</form><br>
-	<form action="UpdatePersonalDetails.jsp" method="post">
-		<input type="submit" value="Update Personal Details">
-	</form><br>
-	<form  action="ChangePassword.jsp" method="post">
-		<input type="submit" value="Change Password">
-	</form><br>
-	<form  action="EditSalaryStructure.jsp" method="post">
-		<input type="submit" value="Update Salary Structure">
-	</form><br>
-	<form  action="PaySlipGeneration.jsp" method="post">
-		<input type="submit" value="Generate Pay Slip for Employees">
 	</form><br><br>
+	
+	<form class="horizontal" action="RegisterEmployee.jsp" method="post">
+		<input  type="submit" value="Register Employee">
+	</form>
+	
+	<form class="horizontal" action="ViewEmployee.jsp" method="post">
+		<input type="submit" value="View Employee Details">
+	</form>
+	<form class="horizontal" action="UpdateEmployee.jsp" method="post">
+		<input type="submit" value="Update Employee Details">
+	</form>
+	<form class="horizontal" action="EditSalaryStructure.jsp" method="post">
+		<input type="submit" value="Update Salary Structure">
+	</form>
+	<form class="horizontal" action="PaySlipGeneration.jsp" method="post">
+		<input type="submit" value="Generate Pay Slip for Employees">
+	</form><br><br><br><br><br><br>	
+	
+	<form class="horizontal" action="ViewPersonalDetails.jsp" method="post">
+		<input type="submit" value="View Personal Details">
+	</form>
+	<form class="horizontal" action="UpdatePersonalDetails.jsp" method="post">
+		<input type="submit" value="Update Personal Details">
+	</form>
+	<form class="horizontal" action="ChangePassword.jsp" method="post">
+		<input type="submit" value="Change Password">
+	</form>
+	
+	<form class="horizontal"  action="PaySlipMonth.jsp" method="post">
+		<input type="submit" value="View Personal Pay Slip">
+	</form>
+
 </body>
 </html>

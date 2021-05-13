@@ -2,22 +2,30 @@
 body {
 	text-align:center;
 	background-color: rgb(96,171,217);
+	font-weight: bold;
 }
 h1 {
 	text-align:center;
 	color:purple;
   	margin-left: 20px;
 }
+form.horizontal{ display: inline-block; }
 
-form.home,form.logout{
+form.home{
+	text-align: left;
+	border-width: 2px;
+}
+form.logout{
 	text-align: right;
 	border-width: 2px;
+	font-size: 14px;
 }
 input.button{
 	border-radius: 12px;
 }
 input.submit,input.login{
 	border-radius: 5px;
+	font-size: 18px;
 }
 img.image{
 	border-radius: 50%;
@@ -29,5 +37,5 @@ p.status{
 form.lable,label.lable{
   display: inline-block;
   width: 140px;
-  text-align: right;
+  text-align: right; 
 }

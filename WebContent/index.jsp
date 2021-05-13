@@ -16,13 +16,15 @@
 	}
 	%>
 	<h1>
-		Login
+		Employee Detail and Payroll System
 	</h1>
 	<form>
+	
 	<p>
 		<img class="image" src="images/Sample_User_Icon" alt="user image" width="150" height="150">
 	</p>
-	</form><br>
+	<h2> Login</h2><br>
+	</form>
 	<form action="UserLoginServlet" method="post">
 	  <p>
 	  <label class="lable" for="EmployeeID">Employee ID:</label>
