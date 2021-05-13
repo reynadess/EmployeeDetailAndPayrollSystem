@@ -50,27 +50,35 @@ public class ChangePasswordServlet extends HttpServlet {
 		String currentPassword = request.getParameter("currentPassword");
 		System.out.println(currentPassword);
 		String newPassword = request.getParameter("newPassword");
-		System.out.println(currentPassword);
-		HttpSession session = request.getSession();
-		Employee employePOJO = (Employee) session.getAttribute("employeeDetail");
-		int employeeId = employePOJO.getEmployeeId();
-		try {
-			if(UserLoginValidation.login(employeeId, currentPassword)) {
-				if(UpdatePassword.updatePassword(employeeId, newPassword)) {
-					request.setAttribute("status", "success");
-					request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
+		System.out.println(newPassword);
+		String confirmPassword = request.getParameter("confirmPassword");
+		System.out.println(confirmPassword);
+		if(newPassword.equals(confirmPassword)) {
+			HttpSession session = request.getSession();
+			Employee employePOJO = (Employee) session.getAttribute("employeeDetail");
+			int employeeId = employePOJO.getEmployeeId();
+			try {
+				if(UserLoginValidation.login(employeeId, currentPassword)) {
+					if(UpdatePassword.updatePassword(employeeId, newPassword)) {
+						request.setAttribute("status", "success");
+						request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
+					}
+					else {
+						request.setAttribute("status", "error");
+						request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
+					}
 				}
 				else {
-					request.setAttribute("status", "error");
+					request.setAttribute("status", "wrongPassword");
 					request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
 				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-			else {
-				request.setAttribute("status", "noPasswordMatch");
-				request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		}
+		else {
+			request.setAttribute("status", "noPasswordMatch");
+			request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);			
 		}
 	}
 }

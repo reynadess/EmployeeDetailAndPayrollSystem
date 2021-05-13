@@ -27,15 +27,20 @@
 		<input type="password" name="currentPassword">
 		<br><br>
 		<label class="lable" for="New Password">New Password:</label>
-	  	<input type="password" name="newPassword"><br><br><br>
+	  	<input type="password" name="newPassword"><br><br>
+		<label class="lable" for="Confirm Password">Confirm Password:</label>
+	  	<input type="password" name="confirmPassword"><br><br><br>
 		<input class="submit" type="submit" value="Submit">		
 	</form>
-	<p id = "status">
+	<p class = "status">
 	<%
 	String status = (String) request.getAttribute("status");
 	if(status != null) {
 		if(status.equals("noPasswordMatch")) {
-			out.println("Current Password Wrong");
+			out.println("Passwords Don't match!");
+		}
+		else if(status.equals("wrongPassword")) {
+			out.println("Wrong Current Password");
 		}
 		else if(status.equals("error")) {
 			out.println("Password not changed! Try again later.");
