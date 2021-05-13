@@ -29,13 +29,6 @@ public class Home extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(); 
-		Employee employeePOJO = (Employee) session.getAttribute("employeeDetail");
-		if(employeePOJO.getEmployeeRole().equals("Admin")) {
-			response.sendRedirect("WelcomeAdmin.jsp");
-		}
-		else {
-			response.sendRedirect("WelcomeEmployee.jsp");			
-		}
+		doGet(request, response);
 	}
 }
