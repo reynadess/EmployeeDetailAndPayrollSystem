@@ -25,8 +25,14 @@
 		<label class="lable">Traveling Allowance:</label>
 		<input type="number" placeholder="Enter in percentage" name="travellingAllowance" required>
 		<br><br>
+		<label class="lable">Dearness Allowance:</label>
+		<input type="number" placeholder="Enter in percentage" name="dearnessAllowance" required>
+		<br><br>
 		<label class="lable">Employee Provident Fund:</label>
 		<input type="number" placeholder="Enter in percentage" name="employeeProvidientFund" required>
+		<br><br>
+		<label class="lable">Others:</label>
+		<input type="number" placeholder="Enter in percentage" name="otherAllowance" required>
 		<br><br>
 		<input class="submit" type="submit" value="Update">
 	</form>

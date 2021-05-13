@@ -99,7 +99,7 @@
 			out.println("Failed to fetch!");
 		}
 		else if(status.equals("ownDetails")) {
-			out.println("Cannot edit your own details!");
+			out.println("Cannot update your own details!");
 		}
 		else if(status.equals("inactive")) {
 			out.println("No longer working with us!");

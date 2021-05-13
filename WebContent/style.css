@@ -1,12 +1,13 @@
 @charset "ISO-8859-1";
 body {
 	text-align:center;
+	background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(220,0,128,0.5));
 	background-color: rgb(96,171,217);
 	font-weight: bold;
 }
 h1 {
 	text-align:center;
-	color:purple;
+	color:lime;
   	margin-left: 20px;
 }
 form.horizontal{ display: inline-block; }
