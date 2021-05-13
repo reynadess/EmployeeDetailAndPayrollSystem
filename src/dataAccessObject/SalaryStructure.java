@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import salaryStrucure.Salary;
+
 
 public class SalaryStructure {
 	public static salaryStructureDetails.SalaryStructure getSalaryStructure(){
@@ -80,5 +82,37 @@ public class SalaryStructure {
 			return false;
 		}	
 		return false;		
+	}
+	
+	public static Salary getSalary(int employeeId, String startDate, String endDate) {
+		Salary salary = new Salary();
+		
+		String query = "SELECT * FROM employee_payroll.pay_slip_generation WHERE paymentDate BETWEEN ? AND ? AND employeeId = ?;";
+		try {
+			PreparedStatement preparedStatement = DBConnection.con.prepareStatement(query);
+			preparedStatement.setString(1, startDate);
+			preparedStatement.setString(2, endDate);
+			preparedStatement.setInt(3, employeeId);
+			ResultSet result = preparedStatement.executeQuery();
+			while(result.next()) {
+				salary.setPaySlipId(result.getInt(2));
+				salary.setGrossBaseSalary(result.getInt(3));
+				salary.setHousingRentAllowance(result.getInt(4));
+				salary.setTravellingAllowance(result.getInt(5));
+				salary.setEmployeeProvidientFund(result.getInt(6));
+				salary.setLossOfPay(result.getInt(7));
+				salary.setDearnessAllowance(result.getInt(8));
+				salary.setOtherAllowance(result.getInt(9));
+				salary.setFinalGrossSalary(result.getInt(10));
+				salary.setFinalNetSalary(result.getInt(11));
+				salary.setFinalGrossSalary(result.getInt(12));
+				salary.setNetBaseSalary(result.getInt(13));
+			}
+			return salary;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;		
 	}
 }

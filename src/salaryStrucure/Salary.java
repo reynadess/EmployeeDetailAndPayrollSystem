@@ -1,6 +1,8 @@
 package salaryStrucure;
 
 public class Salary {
+	int paySlipId;
+	String month;
 	int grossBaseSalary;
 	int netBaseSalary;
 	int housingRentAllowance;
@@ -73,5 +75,17 @@ public class Salary {
 	}
 	public void setFinalNetSalary(int finalNetSalary) {
 		this.finalNetSalary = finalNetSalary;
+	}
+	public int getPaySlipId() {
+		return paySlipId;
+	}
+	public void setPaySlipId(int paySlipId) {
+		this.paySlipId = paySlipId;
+	}
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
 	}
 }
