@@ -38,7 +38,7 @@
 	<form class="horizontal" action="UpdateEmployee.jsp" method="post">
 		<input type="submit" value="Update Employee Details">
 	</form>
-	<form class="horizontal" action="EditSalaryStructure.jsp" method="post">
+	<form class="horizontal" action="SalaryStructureServlet" method="post">
 		<input type="submit" value="Update Salary Structure">
 	</form>
 	<form class="horizontal" action="PaySlipGeneration.jsp" method="post">

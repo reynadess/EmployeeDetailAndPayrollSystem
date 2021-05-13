@@ -37,7 +37,7 @@
 	  	<br><br>
 		<input class="submit" type="submit" value="Update">		
 	</form><br>
-		<form action="UpdatePersonalDetails.jsp" method="post">
+	<form action="UpdatePersonalDetails.jsp" method="post">
 		<input class="submit" type="submit" value="Reset">
 	</form>
 	<p id = "status" class="status">

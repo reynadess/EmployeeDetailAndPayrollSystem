@@ -56,3 +56,16 @@ CREATE TABLE employee_payroll.month_working_days(
 	monthYear DATE NOT NULL PRIMARY KEY,
     workingDays INT NOT NULL
 );
+
+ALTER TABLE employee_payroll.salary_percentage
+ADD dearnessAllowance INT NOT NULL,
+ADD otherAllowance INT NOT NULL;
+
+ALTER TABLE employee_payroll.salary_percentage
+MODIFY COLUMN otherAllowance DOUBLE;
+
+INSERT INTO employee_payroll.salary_percentage (
+baseSalary, housingRentAllowance, travellingAllowance, dearnessAllowance, employeeProvidientFund, otherAllowance
+) VALUES 
+( 60, 20, 14, 10, 12, 10.66666
+);
