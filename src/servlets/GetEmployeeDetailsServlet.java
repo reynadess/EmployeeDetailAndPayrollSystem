@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import EmployeeDetails.Employee;
 import dataAccessObject.DBConnection;
@@ -48,7 +49,13 @@ public class GetEmployeeDetailsServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");  
 	        rd.forward(request, response);
 	    }
+		HttpSession session = request.getSession();
+		Employee employeePOJO = (Employee) session.getAttribute("employeeDetail");
 		int employeeId = Integer.parseInt(request.getParameter("employeeId"));
+		if(employeePOJO.getEmployeeId() == (employeeId)) {
+			request.setAttribute("status", "ownDetails");
+			request.getRequestDispatcher("UpdateEmployee.jsp").forward(request, response);
+		}
 		Employee getEmployee = EmployeeDetails.getEmployeeDetails(employeeId);
 		if(getEmployee.getEmployeeName() == null) {
 			request.setAttribute("status", "notFound");
