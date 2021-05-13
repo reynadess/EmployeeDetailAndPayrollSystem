@@ -39,3 +39,27 @@ form.lable,label.lable{
   width: 140px;
   text-align: right; 
 }
+
+.boxes {
+	width:600px;
+    height:190px;
+	background-color:green;
+	padding-top:20px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+boxes.leftbox {
+	float:left;
+            width:180px;
+            height:160px;
+            background-color:white;
+            border:solid black
+}
+boxes.rightbox{
+	float:right;
+            width:180px;
+            height:160px;
+            background-color:white;
+            border:solid black;
+}
