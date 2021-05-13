@@ -102,7 +102,8 @@ if(session.getAttribute("employeeDetail") == null ){
 <form class="logout" action="Logout" method="post">
 	<input class="button" type="submit" value="Logout">
 </form>
-<div class="salary-slip" >
+<label style="text-align: left">Pay Slip of ""</label>
+<div class="salary-slip" style="background-color: White" >
 	<table class="empDetail">
 		<tr>
 			<th colspan="2">
@@ -116,15 +117,6 @@ if(session.getAttribute("employeeDetail") == null ){
 		<tr>
 			<th colspan="2">
 				Name:
-      		</th>
-      		<td>
-      			XXXXXXXXXXX
-      		</td>
-      		<td colspan="5"></td>
-      	</tr>
-      	<tr>
-      		<th colspan="2">
-				Designation
       		</th>
       		<td>
       			XXXXXXXXXXX
@@ -226,6 +218,7 @@ if(session.getAttribute("employeeDetail") == null ){
 	</table >
 </div >
 <br><label >Gross Salary	:	XXXXX</label><br><br>
-<label>Net Salary		:	XXXXX</label>
+<label >Loss Of Pay		:	XXXXX</label><br><br>
+<label>Net Salary Credited	:	XXXXX</label>
 </body>
 </html>
